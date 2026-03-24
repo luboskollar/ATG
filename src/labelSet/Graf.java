@@ -79,6 +79,21 @@ public class Graf {
                 }
             }
         }
+
+        ArrayList<Integer> cesta = new ArrayList<>();
+        int aktualnyVrchol = ciel;
+        while (aktualnyVrchol != -1) {
+            cesta.add(aktualnyVrchol);
+            aktualnyVrchol = predchodcovia[aktualnyVrchol];
+        }
+
+        for (int i = cesta.size() - 1; i >= 0; i--) {
+            System.out.print(cesta.get(i));
+            if (i != 0) {
+                System.out.print("->");
+            }
+        }
+        System.out.println();
         System.out.println("Najkratšia vzdialenosť do vrcholu " + ciel + " je: " + vzdialenosti[ciel]);
     }
 }

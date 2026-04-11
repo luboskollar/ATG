@@ -11,7 +11,7 @@ public class Main {
         int maxVrchol = 0;
 
         try {
-            Scanner skener = new Scanner(new File("data/pr1.hrn"));
+            Scanner skener = new Scanner(new File("data/SlovRep.hrn"));
 
             while (skener.hasNextInt()) {
                 int odkial = skener.nextInt();
@@ -35,6 +35,6 @@ public class Main {
         }
 
         Graf graf = new Graf(maxVrchol + 1, zoznamHran);
-        graf.najdiVzdialenost(1, 12);
+        graf.najdiVzdialenost(1, 627);
     }
 }

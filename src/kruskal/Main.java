@@ -1,4 +1,7 @@
-package labelSetCezHashMap;
+package kruskal;
+
+import kruskal.Graf;
+import kruskal.Hrana;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,7 +13,7 @@ public class Main {
         int maxVrchol = 0;
 
         try {
-            File subor = new File("dataLabelSet/TEST_mini.hrn");
+            File subor = new File("dataKruskal/pr3.hrn");
             Scanner skenuj = new Scanner(subor);
 
             while (skenuj.hasNextInt()) {
@@ -30,7 +33,7 @@ public class Main {
             System.out.println("Zlý súbor");
         }
 
-        Graf graf = new Graf(maxVrchol + 1, hrany);
-        graf.najdiVzdialenost(1, 6);
+        Graf graf = new Graf(hrany, maxVrchol + 1);
+        graf.najdiKostru();
     }
 }

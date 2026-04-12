@@ -1,6 +1,7 @@
 package kruskal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Graf {
     private int[] k;
@@ -18,16 +19,7 @@ public class Graf {
     }
 
     public void najdiKostru() {
-        for (int i = 0; i < this.zoznamHran.size(); i++) {
-            for (int j = 0; j < (this.zoznamHran.size() - i - 1); j++) {
-                if (this.zoznamHran.get(j).getCena() < this.zoznamHran.get(j + 1).getCena()) {
-                    Hrana docasna = this.zoznamHran.get(j);
-                    this.zoznamHran.set(j, this.zoznamHran.get(j + 1));
-                    this.zoznamHran.set(j + 1, docasna);
-                }
-            }
-        }
-
+        Collections.sort(this.zoznamHran, new HranaComparator());
         ArrayList<Hrana> kostra = new ArrayList<>();
 
         for (Hrana h : this.zoznamHran) {
@@ -53,6 +45,7 @@ public class Graf {
             System.out.println(h.getOdkial() + "->" + h.getKam() + " cena: " + h.getCena());
             finalCena += h.getCena();
         }
+
         System.out.println("Celková cena: " + finalCena);
     }
 }

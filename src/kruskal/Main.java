@@ -13,7 +13,7 @@ public class Main {
         int maxVrchol = 0;
 
         try {
-            File subor = new File("dataKruskal/pr3.hrn");
+            File subor = new File("dataKruskal/SR.hrn");
             Scanner skenuj = new Scanner(subor);
 
             while (skenuj.hasNextInt()) {

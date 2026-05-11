@@ -66,7 +66,7 @@ public class Graf {
                     if (x[aktualny] > 0 && hrana.getOdkial() == predchodca && hrana.getKam() == aktualny) {
                         hrana.setTok(hrana.getTok() + rezerva);
                     }
-                    if (x[aktualny] > 0 && hrana.getKam() == predchodca && hrana.getOdkial() == aktualny) {
+                    if (x[aktualny] < 0 && hrana.getKam() == predchodca && hrana.getOdkial() == aktualny) {
                         hrana.setTok(hrana.getTok() - rezerva);
                     }
                 }

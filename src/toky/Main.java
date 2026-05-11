@@ -10,7 +10,7 @@ public class Main {
         int maxVrchol = 0;
 
         try {
-            File subor = new File("dataToky/Tok_midi.hrn");
+            File subor = new File("dataToky/Tok_mini2.hrn");
             Scanner skenuj = new Scanner(subor);
 
             while (skenuj.hasNextInt()) {
@@ -31,6 +31,6 @@ public class Main {
         }
 
         Graf graf = new Graf(hrany, maxVrchol + 1);
-        graf.najdiMaxTok(1, 15);
+        graf.najdiMaxTok(1, 12);
     }
 }

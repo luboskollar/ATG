@@ -11,8 +11,8 @@ public class Main {
         int maxVrchol = 0;
 
         try {
-            File suborHrn = new File("dataCPM/CPM_midi.hrn");
-            File suborTim = new File("dataCPM/CPM_midi.tim");
+            File suborHrn = new File("dataCPM/CPM_stred.hrn");
+            File suborTim = new File("dataCPM/CPM_stred.tim");
             Scanner skenujHrn = new Scanner(suborHrn);
             Scanner skenujTim = new Scanner(suborTim);
 

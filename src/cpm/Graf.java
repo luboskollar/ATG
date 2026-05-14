@@ -20,33 +20,33 @@ public class Graf {
     }
 
     private ArrayList<Integer> monotonneOcislovanie() {
-        ArrayList<Integer> p = new ArrayList<>();
+        ArrayList<Integer> poradie = new ArrayList<>();
         for (int i = 0; i < this.pocetVrcholov; i++) {
             if (this.ideg[i] == 0) {
-                p.add(i);
+                poradie.add(i);
             }
         }
-        for (int i = 0; i < p.size(); i++) {
+        for (int i = 0; i < poradie.size(); i++) {
             for (Hrana hrana : this.zoznamHran) {
-                if (p.get(i) == hrana.getOdkial()) {
+                if (poradie.get(i) == hrana.getOdkial()) {
                     this.ideg[hrana.getKam()]--;
                     if (this.ideg[hrana.getKam()] == 0) {
-                        p.add(hrana.getKam());
+                        poradie.add(hrana.getKam());
                     }
                 }
             }
         }
-        return p;
+        return poradie;
     }
 
     public void vypocitaj() {
-        ArrayList<Integer> p = this.monotonneOcislovanie();
+        ArrayList<Integer> poradie = this.monotonneOcislovanie();
 
-        for (int i = 0; i < p.size(); i++) {
-            int aktualny = p.get(i);
+        for (int i = 1; i < poradie.size(); i++) {
+            int aktualny = poradie.get(i);
             for (Hrana hrana : this.zoznamHran) {
                 if (hrana.getKam() == aktualny) {
-                    int novyZ = this.zoznamVrcholov.get(hrana.getOdkial()).getZ() + this.zoznamVrcholov.get(hrana.getOdkial()).getTrvanie();
+                    int novyZ = this.zoznamVrcholov.get(hrana.getOdkial()).getZ() + this.zoznamVrcholov.get(hrana.getOdkial()).getP();
                     if (novyZ > this.zoznamVrcholov.get(aktualny).getZ()) {
                         this.zoznamVrcholov.get(aktualny).setZ(novyZ);
                     }
@@ -54,26 +54,20 @@ public class Graf {
             }
         }
 
-        int posledny = p.get(p.size() - 1);
-        int trvanieProjektu = this.zoznamVrcholov.get(posledny).getZ() + this.zoznamVrcholov.get(posledny).getTrvanie();
+        int posledny = poradie.get(poradie.size() - 1);
+        int trvanieProjektu = this.zoznamVrcholov.get(posledny).getZ() + this.zoznamVrcholov.get(posledny).getP();
 
-        for (int i = 0; i < p.size(); i++) {
-            if (this.zoznamVrcholov.get(p.get(i)) == null) {
-                continue;
-            }
-            this.zoznamVrcholov.get(p.get(i)).setK(trvanieProjektu);
+        for (int i = 1; i < poradie.size(); i++) {
+            this.zoznamVrcholov.get(poradie.get(i)).setK(trvanieProjektu);
         }
 
-        for (int i = p.size() - 1; i >= 0; i--) {
-            int aktualny = p.get(i);
-            if (this.zoznamVrcholov.get(aktualny) == null) {
-                continue;
-            }
+        for (int i = poradie.size() - 1; i >= 1; i--) {
+            int aktualny = poradie.get(i);
             for (Hrana hrana : this.zoznamHran) {
                 if (hrana.getKam() == aktualny) {
-                    int kandidat = this.zoznamVrcholov.get(aktualny).getK() - this.zoznamVrcholov.get(aktualny).getTrvanie();
-                    if (this.zoznamVrcholov.get(hrana.getOdkial()).getK() > kandidat) {
-                        this.zoznamVrcholov.get(hrana.getOdkial()).setK(kandidat);
+                    int novyKoniec = this.zoznamVrcholov.get(aktualny).getK() - this.zoznamVrcholov.get(aktualny).getP();
+                    if (this.zoznamVrcholov.get(hrana.getOdkial()).getK() > novyKoniec) {
+                        this.zoznamVrcholov.get(hrana.getOdkial()).setK(novyKoniec);
                     }
                 }
             }
@@ -82,19 +76,16 @@ public class Graf {
         System.out.println("\nv | z(v) | k(v) | r(v)");
         for (int i = 1; i < this.pocetVrcholov; i++) {
             Vrchol v = this.zoznamVrcholov.get(i);
-            int rezerva = v.getK() - v.getZ() - v.getTrvanie();
+            int rezerva = v.getK() - v.getZ() - v.getP();
             System.out.println(i + " | " + v.getZ() + " | " + v.getK() + " | " + rezerva);
         }
         System.out.println("Doba trvania projektu = " + trvanieProjektu);
 
         System.out.print("\nKritická cesta: ");
-        for (int i = 0; i < p.size(); i++) {
-            int vrchol = p.get(i);
-            if (this.zoznamVrcholov.get(vrchol) == null) {
-                continue;
-            }
+        for (int i = 1; i < poradie.size(); i++) {
+            int vrchol = poradie.get(i);
             Vrchol v = this.zoznamVrcholov.get(vrchol);
-            int rezerva = v.getK() - v.getZ() - v.getTrvanie();
+            int rezerva = v.getK() - v.getZ() - v.getP();
             if (rezerva == 0) {
                 System.out.print(vrchol + " -> ");
             }

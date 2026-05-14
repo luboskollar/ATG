@@ -2,21 +2,21 @@ package cpm;
 
 public class Vrchol {
     private int id;
-    private int trvanie;
+    private int p;
     private int z;
     private int k;
 
-    public Vrchol(int id, int trvanie) {
+    public Vrchol(int id, int p) {
         this.id = id;
-        this.trvanie = trvanie;
+        this.p = p;
     }
 
     public int getId() {
         return this.id;
     }
 
-    public int getTrvanie() {
-        return this.trvanie;
+    public int getP() {
+        return this.p;
     }
 
     public int getZ() {

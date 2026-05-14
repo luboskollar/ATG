@@ -10,7 +10,7 @@ public class Main {
         int maxVrchol = 0;
 
         try {
-            File subor = new File("dataLabelSet/TEST_mini.hrn");
+            File subor = new File("dataLabelSet/SlovRep.hrn");
             Scanner skenuj = new Scanner(subor);
 
             while (skenuj.hasNextInt()) {
@@ -31,6 +31,6 @@ public class Main {
         }
 
         Graf graf = new Graf(maxVrchol + 1, hrany);
-        graf.najdiVzdialenost(1, 6);
+        graf.najdiVzdialenost(1, 237416);
     }
 }

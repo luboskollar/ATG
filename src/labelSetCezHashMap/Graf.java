@@ -43,7 +43,7 @@ public class Graf {
                     riadiaci = vrchol;
                 }
             }
-            epsilon.remove((Integer)riadiaci);
+            epsilon.remove(riadiaci);
 
             if (spracovane[riadiaci]) {
                 continue;

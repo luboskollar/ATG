@@ -1,5 +1,9 @@
-<h1 align="center">💾Algoritmická teória grafov</h1>
-<p align="center"><b>Vypracovanie zadaní pre predmet ATG</b></p>
+<div align="center">
+    <br>
+    <h1>💾Algoritmická teória grafov</h1>
+    <strong>Vypracovanie zadaní pre predmet ATG</strong>
+</div>
+<br>
 Tento repozitár obsahuje implementácie algoritmov vypracované počas semestra pre predmet ATG. 
 Konkrétne ide o algoritmy LabelSet, Kruskal, CPM a toky v sieťach.
 

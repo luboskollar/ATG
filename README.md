@@ -23,6 +23,9 @@ Každý riadok zodpovedá jednému vrcholu. Číslo riadku = index vrcholu, hodn
 ## LabelSet - Najkratšia cesta
 
 Hľadanie najkratšej cesty v ohodnotenom grafe.
+
+**Použitie:** V `Main.java` zmeň názov súboru na riadku: `File subor = new File("dataLabelSet/SlovRep.hrn");`
+ a nastav štart/koniec pri volaní metódy `graf.najdiVzdialenost(1, 6);`
 - [`Main.java`](src/labelSetCezHashMap/Main.java)
 - [`Graf.java`](src/labelSetCezHashMap/Graf.java)
 - [`Hrana.java`](src/labelSetCezHashMap/Hrana.java)
@@ -31,6 +34,8 @@ Hľadanie najkratšej cesty v ohodnotenom grafe.
 ## Kruskal - Maximálna kostra
 
 Hľadanie maximálnej kostry grafu.
+
+**Použitie:** V `Main.java` zmeň názov súboru na riadku: `File subor = new File("dataKruskal/TEST_mini.hrn");`
 - [`Main.java`](src/kruskal/Main.java)
 - [`Graf.java`](src/kruskal/Graf.java)
 - [`Hrana.java`](src/kruskal/Hrana.java)
@@ -40,6 +45,8 @@ Hľadanie maximálnej kostry grafu.
 ## CPM - Kritická cesta
 
 Výpočet kritickej cesty v projekte.
+
+**Použitie:** V `Main.java` zmeň názov súboru na riadku: `File suborHrn = new File("dataCPM/CPM_stred.hrn");` a `File suborTim = new File("dataCPM/CPM_stred.tim");`
 - [`Main.java`](src/cpm/Main.java)
 - [`Graf.java`](src/cpm/Graf.java)
 - [`Hrana.java`](src/cpm/Hrana.java)
@@ -48,6 +55,10 @@ Výpočet kritickej cesty v projekte.
 ## Toky v sieťach
 
 Hľadanie maximálneho toku v sieti od zdroja po ústie.
+
+**Použitie:** V `Main.java` zmeň názov súboru na riadku: `File subor = new File("dataToky/Tok_midi.hrn");`
+a nastav štart/koniec pri volaní metódy `graf.najdiMaxTok(1, 15);`
+
 - [`Main.java`](src/toky/Main.java)
 - [`Graf.java`](src/toky/Graf.java)
 - [`Hrana.java`](src/toky/Hrana.java)

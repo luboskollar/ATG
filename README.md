@@ -20,8 +20,13 @@ Každý riadok reprezentuje jednu hranu grafu.
 Každý riadok zodpovedá jednému vrcholu. Číslo riadku = index vrcholu, hodnota = dĺžka trvania aktivity.
 
 ---
-## LabelSet - Najkratšia cesta
+## 🔗LabelSet - Najkratšia cesta
 
+Hľadanie najkratšej cesty v ohodnotenom grafe.
+- [`Main.java`](src/labelSetCezHashMap/Main.java)
+- [`Graf.java`](src/labelSetCezHashMap/Graf.java)
+- [`Hrana.java`](src/labelSetCezHashMap/Hrana.java)
+- [`Vrchol.java`](src/labelSetCezHashMap/Vrchol.java)
 ---
 ## Kruskal - Maximálna kostra
 
